@@ -7,7 +7,14 @@ import ProcessUtils from "./ProcessUtils";
 export class Sentiment extends Component {
   textData = "I love my dog and my cat, cute!";
   processUtils = new ProcessUtils();
-  processedData;
+
+  state = {
+    processedData: {
+      polarity: "0",
+      positivity: "0",
+      negativity: "0  "
+    }
+  };
 
   updateTextData(e) {
     let { value } = e.target;
@@ -15,8 +22,20 @@ export class Sentiment extends Component {
   }
 
   processText(e) {
+    var incomingData;
     e.preventDefault();
-    this.processUtils.processData(this.textData);
+
+    incomingData = this.processUtils.processData(this.textData);
+
+    this.setState({
+      processedData: {
+        positivity: incomingData.positivity,
+        polarity: incomingData.polarity,
+        negativity: incomingData.negativy
+      }
+    });
+
+    console.log(incomingData, this.state.processedData.positivity);
   }
 
   render() {
@@ -34,9 +53,22 @@ export class Sentiment extends Component {
             </Form.Group>
           </Form.Row>
           <Form.Row>
-            <Button id="form-button" variant="danger" type="submit">
-              <i className="far fa-file" /> Process!
-            </Button>
+            <div id="form-bottom-div">
+              <div id="form-button">
+                <Button variant="danger" type="submit">
+                  <i className="far fa-file" /> Process!
+                </Button>
+              </div>
+              <div id="form-processed-data">
+                💹 : {this.state.processedData.polarity}
+              </div>
+              <div id="form-processed-data">
+                😃 : {this.state.processedData.positivity}
+              </div>
+              <div id="form-processed-data">
+                😢 : {this.state.processedData.negativity}
+              </div>
+            </div>
           </Form.Row>
         </Form>
       </Container>

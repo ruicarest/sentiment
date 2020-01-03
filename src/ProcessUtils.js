@@ -25,7 +25,7 @@ export default class ProcessUtils {
     //Polarity uses afinn-165 and/or emoji-emotion - https://github.com/words/polarity
     data = polarity(Data.tokenizeAndStem());
 
-    console.log(data);
+    return data;
 
     // //Emoji-emotion - https://github.com/words/emoji-emotion
     // console.log(emotion.slice(0, 5));
