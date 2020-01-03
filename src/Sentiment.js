@@ -31,7 +31,7 @@ export class Sentiment extends Component {
       processedData: {
         positivity: incomingData.positivity,
         polarity: incomingData.polarity,
-        negativity: incomingData.negativy
+        negativity: incomingData.negativity
       }
     });
 
