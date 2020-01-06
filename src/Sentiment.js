@@ -5,7 +5,6 @@ import "./Sentiment.css";
 import ProcessUtils from "./ProcessUtils";
 
 export class Sentiment extends Component {
-  textData = "I love my dog and my cat, cute!";
   processUtils = new ProcessUtils();
 
   state = {
@@ -13,19 +12,33 @@ export class Sentiment extends Component {
       polarity: "0",
       positivity: "0",
       negativity: "0  "
-    }
+    },
+    textData: ""
   };
 
   updateTextData(e) {
     let { value } = e.target;
-    this.textData = value;
+    this.setState({
+      textData: value
+    });
+  }
+
+  clearText() {
+    this.setState({
+      processedData: {
+        positivity: "0",
+        polarity: "0",
+        negativity: "0"
+      },
+      value: ""
+    });
   }
 
   processText(e) {
     var incomingData;
     e.preventDefault();
 
-    incomingData = this.processUtils.processData(this.textData);
+    incomingData = this.processUtils.processData(this.state.textData);
 
     this.setState({
       processedData: {
@@ -49,6 +62,7 @@ export class Sentiment extends Component {
                 rows="10"
                 placeholder="Insert your text to analyse"
                 onChange={this.updateTextData.bind(this)}
+                value={this.state.textData}
               />
             </Form.Group>
           </Form.Row>
@@ -56,7 +70,7 @@ export class Sentiment extends Component {
             <div id="form-bottom-div">
               <div id="form-button">
                 <Button variant="danger" type="submit">
-                  <i className="far fa-file" /> Process!
+                  <i className="fas fa-cog" /> Process!
                 </Button>
               </div>
               <div id="form-processed-data">
