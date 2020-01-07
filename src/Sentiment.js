@@ -1,55 +1,44 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { render } from "react-dom";
 import { Container, Form, Button, Col } from "react-bootstrap";
+import { init, updateField } from "./SentimentStore";
 import "./Sentiment.css";
 import ProcessUtils from "./ProcessUtils";
-import { connect } from "react-redux";
 
 export class Sentiment extends Component {
   processUtils = new ProcessUtils();
 
-  state = {
-    processedData: {
-      polarity: "0",
-      positivity: "0",
-      negativity: "0  "
-    },
-    textData: ""
-  };
-
   updateTextData(e) {
     let { value } = e.target;
-    this.setState({
-      textData: value
-    });
+    this.props.updateField("textData", value);
+  }
+
+  componentDidMount() {
+    this.props.init();
   }
 
   clearText() {
-    this.setState({
-      processedData: {
-        positivity: "0",
-        polarity: "0",
-        negativity: "0"
-      },
-      value: ""
+    this.props.updateField("processedData", {
+      positivity: "0",
+      polarity: "0",
+      negativity: "0"
     });
+    this.props.updateField("value", "");
   }
 
   processText(e) {
     var incomingData;
     e.preventDefault();
 
-    incomingData = this.processUtils.processData(this.state.textData);
-
-    this.setState({
-      processedData: {
-        positivity: incomingData.positivity,
-        polarity: incomingData.polarity,
-        negativity: incomingData.negativity
-      }
+    incomingData = this.processUtils.processData(this.props.textData);
+    this.props.updateField("processedData", {
+      positivity: incomingData.positivity,
+      polarity: incomingData.polarity,
+      negativity: incomingData.negativity
     });
 
-    console.log(incomingData, this.state.processedData.positivity);
+    console.log(incomingData, this.props.processedData.positivity);
   }
 
   render() {
@@ -63,7 +52,7 @@ export class Sentiment extends Component {
                 rows="10"
                 placeholder="Insert your text to analyse"
                 onChange={this.updateTextData.bind(this)}
-                value={this.state.textData}
+                value={this.props.textData}
               />
             </Form.Group>
           </Form.Row>
@@ -75,13 +64,13 @@ export class Sentiment extends Component {
                 </Button>
               </div>
               <div id="form-processed-data">
-                💹 : {this.state.processedData.polarity}
+                💹 : {this.props.processedData.polarity}
               </div>
               <div id="form-processed-data">
-                😃 : {this.state.processedData.positivity}
+                😃 : {this.props.processedData.positivity}
               </div>
               <div id="form-processed-data">
-                😢 : {this.state.processedData.negativity}
+                😢 : {this.props.processedData.negativity}
               </div>
             </div>
           </Form.Row>

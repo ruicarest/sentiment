@@ -1,11 +1,6 @@
 import { initialState } from "./sentimentInitialState";
 import { cloneDeep } from "lodash";
 
-// interface ReduxActionType {
-//   type?: string;
-//   payload?: object;
-// }
-
 // Actions
 const INIT = "sentiment/INIT";
 const UPDATE_FIELD = "sentiment/UPDATE_FIELD";
@@ -15,7 +10,7 @@ export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     /*
     {
-      type: 'batch-converter/INIT'
+      type: 'sentiment/INIT'
     }
     */
     case INIT: {
@@ -25,8 +20,8 @@ export default function reducer(state = initialState, action = {}) {
 
     /*
    {
-     type: 'batch-converter/UPDATE_FIELD',
-     payload:{ field:"senderName2", value:"2" }
+     type: 'sentiment/UPDATE_FIELD',
+     payload:{ field:"textData", value:"asd" }
    }
    */
     case UPDATE_FIELD: {
