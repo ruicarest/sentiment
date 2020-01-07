@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import { Container, Form, Button, Col } from "react-bootstrap";
 import "./Sentiment.css";
 import ProcessUtils from "./ProcessUtils";
+import { connect } from "react-redux";
 
 export class Sentiment extends Component {
   processUtils = new ProcessUtils();
@@ -89,3 +90,22 @@ export class Sentiment extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    ...state
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    init: () => {
+      dispatch(init());
+    },
+    updateField: (fieldId, newValue) => {
+      dispatch(updateField(fieldId, newValue));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sentiment);
