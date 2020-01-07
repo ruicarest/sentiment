@@ -1,6 +1,9 @@
 import React from "react";
 import { render } from "react-dom";
-import { Sentiment } from "./sentiment";
+import SentimentStContainer from "./SentimentStContainer";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-render(<Sentiment />, document.getElementById("root"));
+render(
+  <SentimentStContainer key={"sentimentContainer"} />,
+  document.getElementById("root")
+);

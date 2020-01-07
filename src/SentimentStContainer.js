@@ -2,8 +2,8 @@ import React from "react";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import Sentiment from "../BatchConverter/BatchConverter";
-import SentimentReducer from "../../stores/batchConverterStore";
+import Sentiment from "./Sentiment";
+import SentimentReducer from "./SentimentStore";
 
 // const store =
 //   process.env.NODE_ENV === "production"
@@ -12,7 +12,7 @@ import SentimentReducer from "../../stores/batchConverterStore";
 
 const store = createStore(SentimentReducer, composeWithDevTools());
 
-    const SentimentStContainer = () => {
+const SentimentStContainer = () => {
   return [
     <Provider store={store}>
       <Sentiment />
