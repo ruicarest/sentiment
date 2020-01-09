@@ -14,8 +14,8 @@ const store = createStore(SentimentReducer, composeWithDevTools());
 
 const SentimentStContainer = () => {
   return [
-    <Provider store={store}>
-      <Sentiment />
+    <Provider key="sentimentStorePrivider" store={store}>
+      <Sentiment key="sentiment" />
     </Provider>
   ];
 };
