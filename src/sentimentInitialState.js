@@ -4,5 +4,7 @@ export const initialState = {
     positivity: "0",
     negativity: "0"
   },
-  textData: ""
+  textData: "",
+  positiveArray: [""],
+  negativeArray: [""]
 };

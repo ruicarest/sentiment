@@ -7,7 +7,6 @@ export default class MainTextForm extends Component {
   processUtils = new ProcessUtils();
 
   componentDidMount() {
-    console.log(this.props);
     console.log("Main Text Form mounted");
   }
 
@@ -21,6 +20,8 @@ export default class MainTextForm extends Component {
       polarity: incomingData.polarity,
       negativity: incomingData.negativity
     });
+    this.props.updateField("positiveArray", incomingData.positive);
+    this.props.updateField("negativeArray", incomingData.negative);
 
     console.log(incomingData, this.props.processedData.positivity);
   }

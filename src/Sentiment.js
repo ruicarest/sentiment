@@ -14,9 +14,23 @@ export class Sentiment extends Component {
 
   render() {
     return (
-      <Container id="form-container">
-        <MainTextForm key="MainTextForm" {...this.props} />
-      </Container>
+      <>
+        <Container id="form-container">
+          <MainTextForm key="MainTextForm" {...this.props} />
+        </Container>
+
+        <Container id="positive-array-container">
+          {this.props.positiveArray.map(word => (
+            <div key={word}>{word}</div>
+          ))}
+        </Container>
+
+        <Container id="negative-array-container">
+          {this.props.negativeArray.map(word => (
+            <div key={word}>{word}</div>
+          ))}
+        </Container>
+      </>
     );
   }
 }
