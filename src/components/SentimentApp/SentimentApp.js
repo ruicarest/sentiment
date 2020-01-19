@@ -4,7 +4,6 @@ import { render } from "react-dom";
 import { Container, Form, Button, Col } from "react-bootstrap";
 import { init, updateField } from "../../stores/SentimentStore";
 import "./SentimentApp.css";
-import ProcessUtils from "../../services/ProcessUtils";
 import MainTextForm from "../MainTextForm/MainTextForm";
 
 export class SentimentApp extends Component {
