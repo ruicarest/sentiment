@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Container, Form, Button, Col } from "react-bootstrap";
-import ProcessUtils from "../ProcessUtils";
+import ProcessUtils from "../../services/ProcessUtils";
 
 export default class MainTextForm extends Component {
   processUtils = new ProcessUtils();

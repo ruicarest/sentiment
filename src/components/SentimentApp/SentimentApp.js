@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { render } from "react-dom";
 import { Container, Form, Button, Col } from "react-bootstrap";
-import { init, updateField } from "./SentimentStore";
-import "./Sentiment.css";
-import ProcessUtils from "./ProcessUtils";
-import MainTextForm from "./MainTextForm/MainTextForm";
+import { init, updateField } from "../../stores/SentimentStore";
+import "./SentimentApp.css";
+import ProcessUtils from "../../services/ProcessUtils";
+import MainTextForm from "../MainTextForm/MainTextForm";
 
-export class Sentiment extends Component {
+export class SentimentApp extends Component {
   componentDidMount() {
     this.props.init();
   }
@@ -52,4 +52,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Sentiment);
+export default connect(mapStateToProps, mapDispatchToProps)(SentimentApp);
