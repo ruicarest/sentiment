@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Container, Form, Button, Col } from "react-bootstrap";
-import ProcessUtils from "../../services/ProcessUtils";
+import { processData } from "../../services/ProcessUtils";
 
 export default class MainTextForm extends Component {
-  processUtils = new ProcessUtils();
-
   componentDidMount() {
     console.log("Main Text Form mounted");
   }
@@ -14,7 +12,7 @@ export default class MainTextForm extends Component {
     var incomingData;
     e.preventDefault();
 
-    incomingData = this.processUtils.processData(this.props.textData);
+    incomingData = processData(this.props.textData);
     this.props.updateField("processedData", {
       positivity: incomingData.positivity,
       polarity: incomingData.polarity,
