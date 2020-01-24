@@ -38,6 +38,7 @@
     "bootstrap": "^4.4.1",
     "css-loader": "^3.2.0",
     "emoji-emotion": "^2.1.2",
+    "lodash": "^4.17.15",
     "natural": "^0.6.3",
     "polarity": "^3.0.3",
     "react": "^16.11.0",
