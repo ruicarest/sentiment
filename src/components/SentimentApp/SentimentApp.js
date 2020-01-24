@@ -5,6 +5,7 @@ import { Container, Form, Button, Col } from "react-bootstrap";
 import { init, updateField } from "../../stores/SentimentStore";
 import "./SentimentApp.css";
 import MainTextForm from "../MainTextForm/MainTextForm";
+import _ from "lodash";
 
 export class SentimentApp extends Component {
   componentDidMount() {
@@ -20,13 +21,13 @@ export class SentimentApp extends Component {
 
         <Container id="positive-array-container">
           {this.props.positiveArray.map(word => (
-            <div key={word}>{word}</div>
+            <div key={_.uniqueId(word)}>{word}</div>
           ))}
         </Container>
 
         <Container id="negative-array-container">
           {this.props.negativeArray.map(word => (
-            <div key={word}>{word}</div>
+            <div key={_.uniqueId(word)}>{word}</div>
           ))}
         </Container>
       </>
