@@ -24,3 +24,18 @@
 #form-processed-data {
   margin-left: 1rem;
 }
+
+#list-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+#list-div {
+  width: 6rem;
+  margin: 1rem;
+  background: #ffffff;
+  box-shadow: 0px 8px 38px rgba(0, 0, 0, 0.1);
+}
