@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Container, Form, Button, Col } from "react-bootstrap";
 import { processData } from "../../services/ProcessUtils";
+import { init, updateField } from "../../stores/SentimentStore";
 
-export default class MainTextForm extends Component {
-  componentDidMount() {
-    console.log("Main Text Form mounted");
-  }
+export class MainTextForm extends Component {
+  componentDidMount() {}
 
   processText(e) {
     var incomingData;
@@ -74,3 +73,19 @@ export default class MainTextForm extends Component {
     );
   };
 }
+
+const mapStateToProps = state => {
+  return {
+    ...state
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    updateField: (fieldId, newValue) => {
+      dispatch(updateField(fieldId, newValue));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainTextForm);

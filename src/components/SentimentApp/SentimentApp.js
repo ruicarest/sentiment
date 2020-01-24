@@ -15,7 +15,7 @@ export class SentimentApp extends Component {
     return (
       <>
         <Container id="form-container">
-          <MainTextForm key="MainTextForm" {...this.props} />
+          <MainTextForm key="MainTextForm" />
         </Container>
 
         <Container id="positive-array-container">
