@@ -27,7 +27,7 @@ export class WordList extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+export const mapStateToProps = (state, ownProps) => {
   return {
     ...state,
     arrayToList: ownProps.arrayToList
