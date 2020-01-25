@@ -5,6 +5,6 @@ export const initialState = {
     negativity: "0"
   },
   textData: "",
-  positiveArray: [""],
-  negativeArray: [""]
+  positiveArray: ["awesome", "god"],
+  negativeArray: ["hell", "yucky"]
 };
