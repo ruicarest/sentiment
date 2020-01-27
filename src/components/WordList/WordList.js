@@ -11,7 +11,7 @@ export class WordList extends Component {
   render() {
     return (
       <>
-        {this.props[this.props.arrayToList] ? (
+        {this.props[this.props.arrayToList].length ? (
           <div id="list-div">
             {this.props[this.props.arrayToList].map(word => (
               <div key={_.uniqueId(word)} className="word-on-list">
