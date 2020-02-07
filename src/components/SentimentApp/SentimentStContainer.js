@@ -1,23 +1,22 @@
-import React from "react";
-import { Provider } from "react-redux";
-import { createStore } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
 import SentimentApp from "./SentimentApp";
-import SentimentReducer from "./../../stores/SentimentStore";
+import { connect } from "react-redux";
+import { init, updateField } from "../../stores/SentimentStore";
 
-// const store =
-//   process.env.NODE_ENV === "production"
-//     ? createStore(SentimentReducer)
-//     : createStore(SentimentReducer, composeWithDevTools());
-
-const store = createStore(SentimentReducer, composeWithDevTools());
-
-const SentimentStContainer = () => {
-  return [
-    <Provider key="sentimentStorePrivider" store={store}>
-      <SentimentApp key="sentimentApp" />
-    </Provider>
-  ];
+const mapStateToProps = state => {
+  return {
+    ...state
+  };
 };
 
-export default SentimentStContainer;
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    init: () => {
+      dispatch(init());
+    },
+    updateField: (fieldId, newValue) => {
+      dispatch(updateField(fieldId, newValue));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SentimentApp);

@@ -8,7 +8,7 @@ import MainTextForm from "../MainTextForm/MainTextForm";
 import WordList from "../WordList/WordList";
 import _ from "lodash";
 
-export class SentimentApp extends Component {
+export default class SentimentApp extends Component {
   componentDidMount() {
     this.props.init();
   }
@@ -28,22 +28,3 @@ export class SentimentApp extends Component {
     );
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    ...state
-  };
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    init: () => {
-      dispatch(init());
-    },
-    updateField: (fieldId, newValue) => {
-      dispatch(updateField(fieldId, newValue));
-    }
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SentimentApp);
