@@ -5,7 +5,6 @@ import { mergeMap, map, mapTo, delay } from "rxjs/operators";
 export const runAlgorithmEpic = action$ =>
   action$.pipe(
     ofType("sentiment/INIT"),
-    delay(5000),
-    mapTo({ type: "sentiment/END" })
-    //mergeMap(action => updateField("loading", false))
+    delay(1000),
+    mapTo(updateField("loading", false))
   );
