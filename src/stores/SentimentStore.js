@@ -3,6 +3,7 @@ import { cloneDeep } from "lodash";
 
 // Actions
 const INIT = "sentiment/INIT";
+const END = "sentiment/END";
 const UPDATE_FIELD = "sentiment/UPDATE_FIELD";
 
 // Reducer
@@ -16,6 +17,11 @@ export default function reducer(state = initialState, action = {}) {
     case INIT: {
       const newState = cloneDeep(initialState);
       return newState;
+    }
+
+    case END: {
+      console.log("END");
+      return state;
     }
 
     /*
@@ -45,4 +51,7 @@ export function init() {
 }
 export function updateField(fieldId, value) {
   return { type: UPDATE_FIELD, payload: { field: fieldId, value } };
+}
+export function end() {
+  return { type: END };
 }
