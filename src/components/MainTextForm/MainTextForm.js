@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { Container, Form, Button, Col } from "react-bootstrap";
 import { processData } from "../../services/ProcessUtils";
 import { init, updateField } from "../../stores/SentimentStore";
+import serverAPI from "../../services/ServerAPI";
+import RetrieveButton from "../RetrieveButton/RetrieveButton";
 
 export class MainTextForm extends Component {
   componentDidMount() {}
@@ -53,6 +55,7 @@ export class MainTextForm extends Component {
         </Form.Row>
         <Form.Row>
           <div id="form-bottom-div">
+            <RetrieveButton action={serverAPI.requestNewTweet} />
             <div id="form-button">
               <Button variant="danger" type="submit">
                 <i className="fas fa-cog" /> Process!

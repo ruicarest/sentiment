@@ -1,0 +1,29 @@
+#RetrieveButton {
+  display: flex;
+  align-items: center;
+  background: rgb(0, 197, 247);
+  color: #ffffff;
+  margin-right: 1rem;
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+#RetrieveButton .file-button-icon {
+  background: rgb(255, 255, 255);
+  border-radius: 999px;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  margin-right: 0.4rem;
+}
+
+#RetrieveButton .file-button-icon i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
