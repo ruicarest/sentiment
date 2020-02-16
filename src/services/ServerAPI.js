@@ -5,9 +5,10 @@ function handleErrors(response) {
   return response;
 }
 
-var requestNewTweet = e => {
+const requestNewTweet = e => {
+  var tweet;
   e.preventDefault();
-  fetch("http://localhost:3001/user2", {
+  fetch("http://localhost:3001/user", {
     method: "GET",
     headers: { "Content-Type": "application/json" },
     mode: "cors",
@@ -18,9 +19,12 @@ var requestNewTweet = e => {
       return response.json();
     })
     .then(data => {
-      console.log(data);
+      tweet = data;
+      console.log(tweet);
     })
     .catch(error => console.log(error));
+
+  return tweet;
 };
 
 export default { requestNewTweet };
