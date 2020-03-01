@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Container, Form, Button, Col } from "react-bootstrap";
 import { processData } from "../../services/ProcessUtils";
-import { init, updateField } from "../../stores/SentimentStore";
+import { updateField, fetchTweet } from "../../stores/SentimentStore";
 import serverAPI from "../../services/ServerAPI";
 import RetrieveButton from "../RetrieveButton/RetrieveButton";
 
@@ -55,7 +55,7 @@ export class MainTextForm extends Component {
         </Form.Row>
         <Form.Row>
           <div id="form-bottom-div">
-            <RetrieveButton action={serverAPI.requestNewTweet} />
+            <RetrieveButton action={this.props.fetchTweet} />
             <div id="form-button">
               <Button variant="danger" type="submit">
                 <i className="fas fa-cog" /> Process!
@@ -87,6 +87,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     updateField: (fieldId, newValue) => {
       dispatch(updateField(fieldId, newValue));
+    },
+    fetchTweet: () => {
+      dispatch(fetchTweet());
     }
   };
 };

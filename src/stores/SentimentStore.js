@@ -5,6 +5,7 @@ import { cloneDeep } from "lodash";
 const INIT = "sentiment/INIT";
 const END = "sentiment/END";
 const UPDATE_FIELD = "sentiment/UPDATE_FIELD";
+const FETCH_TWEET = "sentiment/FETCH_TWEET";
 
 // Reducer
 export default function reducer(state = initialState, action = {}) {
@@ -17,6 +18,11 @@ export default function reducer(state = initialState, action = {}) {
     case INIT: {
       const newState = cloneDeep(initialState);
       return newState;
+    }
+
+    case FETCH_TWEET: {
+      console.log("Fetching...");
+      return state;
     }
 
     case END: {
@@ -48,6 +54,9 @@ export default function reducer(state = initialState, action = {}) {
 // Action Creators
 export function init() {
   return { type: INIT };
+}
+export function fetchTweet() {
+  return { type: FETCH_TWEET };
 }
 export function updateField(fieldId, value) {
   return { type: UPDATE_FIELD, payload: { field: fieldId, value } };
