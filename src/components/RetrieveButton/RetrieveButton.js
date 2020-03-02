@@ -13,6 +13,7 @@ class RetrieveButton extends Component {
         onClick={this.props.action}
         id="RetrieveButton"
         className={"btn" + " " + this.props.buttonType}
+        type="button"
       >
         <div className="file-button-icon">
           <i className={this.props.buttonIcon} />
