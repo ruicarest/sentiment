@@ -7,7 +7,7 @@ function handleErrors(response) {
 
 const requestNewTweet = e => {
   var tweet;
-  e.preventDefault();
+  //e.preventDefault();
   fetch("http://localhost:3001/user", {
     method: "GET",
     headers: { "Content-Type": "application/json" },
